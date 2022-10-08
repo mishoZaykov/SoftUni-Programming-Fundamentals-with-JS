@@ -1,16 +1,30 @@
-function condenseArrayToNumber(array) {
-  let condensedArray = [array.length - 1];
+function condenseArrayToNumbers(numbers) {
+  let condensed = [];
+  let current = 0;
+  let second = 0;
+  let sum = 0;
+  let flag = true;
 
-  if (array.length === 1) {
-    console.log(array[0]);
-    return;
-  }
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < condensedArray.length; j++) {
-      condensedArray[j] = array[j] = array[j + 1];
+  while(numbers.length > 1){
+    for(let i = 0; i < numbers.length; i++){
+      if(i + 1 < numbers.length){
+        current = numbers[i];
+      second = numbers[i + 1];
+      sum += current + second;
+      condensed.push(current + second)
+      }
     }
-    array = condensedArray;
+    if(condensed.length == 1){
+      break;
+    }
+    numbers = condensed;
+    condensed = []
+    flag = false; 
   }
-  console.log(condensedArray[0]);
+  if (flag){ 
+    console.log(numbers[0]);
+  }else{
+    console.log(condensed[0]);
+  }
 }
-condenseArrayToNumber([2, 10, 3]);
+condenseArrayToNumbers([2,10,3])
