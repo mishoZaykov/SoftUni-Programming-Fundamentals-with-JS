@@ -29,4 +29,4 @@ function biscuitFactory(input){
 
 }
 
-biscuitFactory(["78", "8", "16000"]);
+biscuitFactory(["65", "12", "10000000000000"]);
